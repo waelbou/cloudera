@@ -50,8 +50,28 @@ Download and Copy(unzip) MySQL JDBC connectors (all nodes)
 	tar -zxvf mysql-connector-java-5.1.39.tar.gz
 
 
-## Replica ##
+## Replication ##
+
+Configure MySQL for replication
+
+[http://www.tecmint.com/how-to-setup-mysql-master-slave-replication-in-rhel-centos-fedora/](http://www.tecmint.com/how-to-setup-mysql-master-slave-replication-in-rhel-centos-fedora/)
+
+running *mysql install db* on Master and Replica nodes
+
+	mysql_install_db --user=mysql
+
+Starting mysqld
+
+	service mysqld start
 
 
+    mysql> show master status;
+    +------------------+----------+--------------+------------------+-------------------+
+    | File | Position | Binlog_Do_DB | Binlog_Ignore_DB | Executed_Gtid_Set |
+    +------------------+----------+--------------+------------------+-------------------+
+    | mysql-bin.000003 | 2221 | cmdb |  |   |
+    +------------------+----------+--------------+------------------+-------------------+
+    1 row in set (0.00 sec)
+    
 
-	
+
