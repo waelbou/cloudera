@@ -1,4 +1,4 @@
-## lab   
+## Storage Lab   
 
 Creating folders
 
@@ -28,9 +28,9 @@ creating a 5 gb file with 32mb block size
 
 Result
 
-real    1m49.353s
-user    0m6.326s
-sys     0m0.303s
+	real	1m49.353s
+	user	0m6.326s
+	sys 	0m0.303s
 
 
 add a Cache pool
@@ -42,6 +42,28 @@ add a directive
 	hdfs cacheadmin -addDirective -path /tmp/performance -pool performancepool
 
 
-run terasort first time 
+run terasort **first** time 
 
 	time hadoop jar /opt/cloudera/parcels/CDH-5.7.1-1.cdh5.7.1.p0.11/lib/hue/apps/oozie/examples/lib/hadoop-examples.jar terasort /tmp/performance /tmp/terasort-output
+
+result **first** run
+
+	real    12m39.275s
+	user    0m11.816s
+	sys     0m0.587s
+
+remove directory
+
+	hadoop fs -rm -r -f -skipTrash /tmp/terasort-output
+
+run terasort **second** time 
+
+	time hadoop jar /opt/cloudera/parcels/CDH-5.7.1-1.cdh5.7.1.p0.11/lib/hue/apps/oozie/examples/lib/hadoop-examples.jar terasort /tmp/performance /tmp/terasort-output
+
+result **second** run
+
+	real    12m13.797s
+	user    0m10.431s
+	sys     0m0.551s
+
+Comparison: a gain of 26mn!!!
