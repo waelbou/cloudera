@@ -8,7 +8,7 @@ Content
 
 FQDN for the MySQL Server
 
-	ec2-52-19-235-255.eu-west-1.compute.amazonaws.com
+	ec2-52-19-152-64.eu-west-1.compute.amazonaws.com
 
 
 yum
@@ -26,7 +26,7 @@ repo id                                                    repo name            
 base                                                       CentOS-6 - Base                                                       6696
 extras                                                     CentOS-6 - Extras                                                       60
 updates                                                    CentOS-6 - Updates                                                     115
-repolist: 6871
+
 
 Accounts
 
